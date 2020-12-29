@@ -19,50 +19,7 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-puts "Creating user..."
-
-jean_dupuis = { first_name: "jean", last_name: "dupuis", username: "jndps", email: "jean.dupuis@toto.fr", password:"123456"}
-paul_young = { first_name: "paul", last_name: "young", username: "plng", email: "paul.young@toto.fr", password:"123456"}
-george_michael = { first_name: "george", last_name: "michael", username: "grgmchl", email: "george.michael@toto.fr", password:"123456"}
-michael_jackson = { first_name: "michael", last_name: "jackson", username: "mchljcksn", email: "michael.jackson@toto.fr", password:"123456"}
-phil_collins = { first_name: "phil", last_name: "collins", username: "phlcllns", email: "phil.collins@toto.fr", password:"123456"}
-diana_ross = { first_name: "diana", last_name: "ross", username: "dnrss", email: "diana.ross@toto.fr", password:"123456"}
-tupac_shakur = { first_name: "tupac", last_name: "shakur", username: "tpcshkr", email: "tupac.shakur@toto.fr", password:"123456"}
-lionel_richie = { first_name: "lionel", last_name: "richie", username: "lnlrch", email: "lionel.richie@toto.fr", password:"123456"}
-mariah_carey = { first_name: "mariah", last_name: "carey", username: "mrhcr", email: "mariah.carey@toto.fr", password:"123456"}
-alanis_morissette = { first_name: "alanis", last_name: "morissette", username: "lnsmrsstt", email: "alanis.morissette@toto.fr", password:"123456"}
-chantal_goya = { first_name: "chantal", last_name: "goya", username: "chntlg", email: "chantal.goya@toto.fr", password:"123456"}
-ma_donna = { first_name: "ma", last_name: "donna", username: "mdnn", email: "ma.donna@toto.fr", password:"123456"}
-alan_parsons = { first_name: "alan", last_name: "parsons", username: "lnprsns", email: "alan.parsons@toto.fr", password:"123456"}
-eddy_mitchel = { first_name: "eddy", last_name: "mitchel", username: "ddmtchl", email: "eddy.mitchel@toto.fr", password:"123456"}
-van_halen = { first_name: "van", last_name: "halen", username: "vnhln", email: "van.halen@toto.fr", password:"123456"}
-quincy_jones= { first_name: "quincy", last_name: "jones", username: "qncyjns", email: "quincy.jones@toto.fr", password:"123456"}
-peter_gabriel = { first_name: "peter", last_name: "gabriel", username: "ptrgbrl", email: "peter.gabriel@toto.fr", password:"123456"}
-claude_francois = { first_name: "claude", last_name: "francois", username: "cldfrncs", email: "claude.francois@toto.fr", password:"123456"}
-johnny_haliday = { first_name: "johnny", last_name: "haliday", username: "jhnnhld", email: "johnny_haliday@toto.fr", password:"123456"}
-ringo_star = { first_name: "ringo", last_name: "star", username: "rngstr", email: "ringo.star@toto.fr", password:"123456"}
-paul_mccartney = { first_name: "paul", last_name: "mccartney", username: "plmccrtn", email: "paul.mccartney@toto.fr", password:"123456"}
-john_lennon = { first_name: "john", last_name: "lennon", username: "jhnlnnn", email: "john.lennon@toto.fr", password:"123456"}
-mick_jagger = { first_name: "mick", last_name: "jagger", username: "mckjggr", email: "mick.jagger@toto.fr", password:"123456"}
-keith_richards = { first_name: "keith", last_name: "richards", username: "kthrchrds", email: "keith.richards@toto.fr", password:"123456"}
-robert_plant= { first_name: "robert", last_name: "plant", username: "rbrtplnt", email: "robert.plant@toto.fr", password:"123456"}
-jimmy_page = { first_name: "jimmy", last_name: "page", username: "jmmpg", email: "jimmy.page@toto.fr", password:"123456"}
-freddie_mercury = { first_name: "freddie", last_name: "mercury", username: "frddmrcr", email: "freddie.mercury@toto.fr", password:"123456"}
-john_deacon = { first_name: "john", last_name: "deacon", username: "jhndcn", email: "john.deacon@toto.fr", password:"123456"}
-
-
-
-users =[ jean_dupuis, paul_young, george_michael, michael_jackson, phil_collins, diana_ross, tupac_shakur, lionel_richie, mariah_carey, alanis_morissette,
-chantal_goya, ma_donna, alan_parsons,eddy_mitchel,van_halen,quincy_jones,peter_gabriel,claude_francois,johnny_haliday,ringo_star,paul_mccartney,john_lennon,mick_jagger,keith_richards,
- robert_plant,jimmy_page,freddie_mercury,john_deacon]
-
-# users=[jean_dupuis, paul_young]
-
-users.each do |attributes|
-  user = User.create!(attributes)
-  puts "Created #{user.email}"
-end
-puts "Finished!"
+puts "Creating faction...."
 
 order={name:"order"}
 death={name:"death"}
@@ -122,9 +79,9 @@ battlesmith={name:"battle smith",image:"https://www.games-workshop.com/resources
 grim={name:"grimwrath berzeker",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99070205007_GrimWrathBerzerker01.jpg",point:110,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
 heartguard={name:"hearthguard Berzekers",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205016_FyreslayersHearthGuardBerzerkers01.jpg",point:180,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
 auricheartguard={name:"auric hearthguard",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205016_FyreslayersAuricHearthguard01.jpg",point:90,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
-auricprem={name:"auric runesmiter on magmadroth",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205017_AuricRunesmiterOnMagmadroth01.jpg",point:90,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
-auricsec={name:"auric runefather on magmadroth",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205017_RuneFatherOnMagmadroth02.jpg",point:90,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
-aurictrois={name:"auric runeson on magmadroth",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205017_RuneSonOnMagmadroth01.jpg",point:90,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
+auricprem={name:"auric runesmiter on magmadroth",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205017_AuricRunesmiterOnMagmadroth01.jpg",point:300,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
+auricsec={name:"auric runefather on magmadroth",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205017_RuneFatherOnMagmadroth02.jpg",point:300,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
+aurictrois={name:"auric runeson on magmadroth",image:"https://www.games-workshop.com/resources/catalog/product/600x620/99120205017_RuneSonOnMagmadroth01.jpg",point:300,subfaction_id:Subfaction.where(name:"fireslayer").first.id}
 
 fireslayers=[magmic,doom,elues,vulkite,runemaster,battlesmith,grim,heartguard,auricheartguard,auricprem,auricsec,aurictrois]
 
@@ -176,176 +133,205 @@ end
 puts "Finished!"
 
 
+puts "Creating user..."
+
+jean_dupuis = { first_name: "jean", last_name: "dupuis", username: "jndps", email: "jean.dupuis@toto.fr", password:"123456"}
+paul_young = { first_name: "paul", last_name: "young", username: "plng", email: "paul.young@toto.fr", password:"123456"}
+george_michael = { first_name: "george", last_name: "michael", username: "grgmchl", email: "george.michael@toto.fr", password:"123456"}
+michael_jackson = { first_name: "michael", last_name: "jackson", username: "mchljcksn", email: "michael.jackson@toto.fr", password:"123456"}
+phil_collins = { first_name: "phil", last_name: "collins", username: "phlcllns", email: "phil.collins@toto.fr", password:"123456"}
+diana_ross = { first_name: "diana", last_name: "ross", username: "dnrss", email: "diana.ross@toto.fr", password:"123456"}
+tupac_shakur = { first_name: "tupac", last_name: "shakur", username: "tpcshkr", email: "tupac.shakur@toto.fr", password:"123456"}
+lionel_richie = { first_name: "lionel", last_name: "richie", username: "lnlrch", email: "lionel.richie@toto.fr", password:"123456"}
+mariah_carey = { first_name: "mariah", last_name: "carey", username: "mrhcr", email: "mariah.carey@toto.fr", password:"123456"}
+alanis_morissette = { first_name: "alanis", last_name: "morissette", username: "lnsmrsstt", email: "alanis.morissette@toto.fr", password:"123456"}
+chantal_goya = { first_name: "chantal", last_name: "goya", username: "chntlg", email: "chantal.goya@toto.fr", password:"123456"}
+ma_donna = { first_name: "ma", last_name: "donna", username: "mdnn", email: "ma.donna@toto.fr", password:"123456"}
+alan_parsons = { first_name: "alan", last_name: "parsons", username: "lnprsns", email: "alan.parsons@toto.fr", password:"123456"}
+eddy_mitchel = { first_name: "eddy", last_name: "mitchel", username: "ddmtchl", email: "eddy.mitchel@toto.fr", password:"123456"}
+van_halen = { first_name: "van", last_name: "halen", username: "vnhln", email: "van.halen@toto.fr", password:"123456"}
+quincy_jones= { first_name: "quincy", last_name: "jones", username: "qncyjns", email: "quincy.jones@toto.fr", password:"123456"}
+peter_gabriel = { first_name: "peter", last_name: "gabriel", username: "ptrgbrl", email: "peter.gabriel@toto.fr", password:"123456"}
+claude_francois = { first_name: "claude", last_name: "francois", username: "cldfrncs", email: "claude.francois@toto.fr", password:"123456"}
+johnny_haliday = { first_name: "johnny", last_name: "haliday", username: "jhnnhld", email: "johnny_haliday@toto.fr", password:"123456"}
+ringo_star = { first_name: "ringo", last_name: "star", username: "rngstr", email: "ringo.star@toto.fr", password:"123456"}
+paul_mccartney = { first_name: "paul", last_name: "mccartney", username: "plmccrtn", email: "paul.mccartney@toto.fr", password:"123456"}
+john_lennon = { first_name: "john", last_name: "lennon", username: "jhnlnnn", email: "john.lennon@toto.fr", password:"123456"}
+mick_jagger = { first_name: "mick", last_name: "jagger", username: "mckjggr", email: "mick.jagger@toto.fr", password:"123456"}
+keith_richards = { first_name: "keith", last_name: "richards", username: "kthrchrds", email: "keith.richards@toto.fr", password:"123456"}
+robert_plant= { first_name: "robert", last_name: "plant", username: "rbrtplnt", email: "robert.plant@toto.fr", password:"123456"}
+jimmy_page = { first_name: "jimmy", last_name: "page", username: "jmmpg", email: "jimmy.page@toto.fr", password:"123456"}
+freddie_mercury = { first_name: "freddie", last_name: "mercury", username: "frddmrcr", email: "freddie.mercury@toto.fr", password:"123456"}
+john_deacon = { first_name: "john", last_name: "deacon", username: "jhndcn", email: "john.deacon@toto.fr", password:"123456"}
 
 
 
-# readers = User.all
-# readers.each do |reader|
-  
-#   book_a ={ title:"le lezard", 
-#             description:"le lezard est un reptile pouvant prendre plusieurs formes",
-#             user_id: reader.id,
-#             author:"Lee Zard",
-#             collection:"Sang Froid",
-#             editor:"betes sauvages",
-#             genre:"science",
-#             isbn:"1234567891234",
-#             image:"le-lezard.png",
-#           }
+users =[ jean_dupuis, paul_young, george_michael, michael_jackson, phil_collins, diana_ross, tupac_shakur, lionel_richie, mariah_carey, alanis_morissette,
+chantal_goya, ma_donna, alan_parsons,eddy_mitchel,van_halen,quincy_jones,peter_gabriel,claude_francois,johnny_haliday,ringo_star,paul_mccartney,john_lennon,mick_jagger,keith_richards,
+ robert_plant,jimmy_page,freddie_mercury,john_deacon]
 
-#   book_b ={ title:"le dindon", 
-#             description:"le dindon est un oiseau qui ne vole pas et qui a disparu",
-#             user_id: reader.id,
-#             author:"Ding Dong",
-#             collection:"la deplumée",
-#             editor:"betes sauvages",
-#             genre:"science",
-#             isbn:"1234567891235",
-#             image:"le-dindon.png",
-#           }
-        
-#   book_c ={ title:"le Puma", 
-#             description:"le puma ne peut parler de lui même que par lui même",
-#             user_id: reader.id,
-#             author:"Alain Delon",
-#             collection:"Gros Melon",
-#             editor:"Cherche Midi",
-#             genre:"roman",
-#             isbn:"1234567891236",
-#             image:"le puma.png",
-#           }
-       
-#   book_d ={ title:"les cornes musent", 
-#             description:"quand les cornes musents ca s'entend",
-#             user_id: reader.id,
-#             author:"Alain Vache",
-#             collection:"Grosjean",
-#             editor:"Scolar",
-#             genre:"roman",
-#             isbn:"1234567891237",
-#             image:"les cornes musent.png",
-#           }
+ 
 
-#   book_e ={ title:"Karaté Kid", 
-#             description:"Larusso doit combattre les mechants Kobra Kaï",
-#             user_id: reader.id,
-#             author:"Camille Combat",
-#             collection:"Fureur de vivre",
-#             editor:"Cherche Midi",
-#             genre:"roman",
-#             isbn:"1234567891238",
-#             image:"karate kid.png",
-#           }
+# users=[jean_dupuis, paul_young,george_michael]
 
-#   book_f ={ title:"ET l'intraterrestre", 
-#             description:"ET téléphone 5G",
-#             user_id: reader.id,
-#             author:"Thierry Joueurdelamontagne",
-#             collection:"wahou",
-#             editor:"amblin",
-#             genre:"sf",
-#             isbn:"1234567891239",
-#             image:"ET.png",
-#           }
+users.each do |attributes|
+  user = User.create!(attributes)
+  puts "Created #{user.email}"
+end
+puts "Finished!"
 
-#   book_g ={ title:"Le Clown est la", 
-#             description:"Il flotte, toi aussi tu veux flotter?",
-#             user_id: reader.id,
-#             author:"Thierry Roi",
-#             collection:"Chaire de poule",
-#             editor:"lu",
-#             genre:"SF",
-#             isbn:"1234567891240",
-#             image:"le clown est la.png",
-#           }
+#lists creation
+list_a = List.create({user_id:User.where(email:"jean.dupuis@toto.fr").first.id,subfaction_id:Subfaction.where(name:"city").first.id,point_category:1500,point_number:1490})
+puts list_a
+list_b = List.create({user_id:User.where(email:"jean.dupuis@toto.fr").first.id,subfaction_id:Subfaction.where(name:"fireslayer").first.id,point_category:1500,point_number:1500})
+puts list_b
+list_c = List.create({user_id:User.where(email:"paul.young@toto.fr").first.id,subfaction_id:Subfaction.where(name:"daughter").first.id,point_category:1500,point_number:1450})
+puts list_c
+list_d = List.create({user_id:User.where(email:"paul.young@toto.fr").first.id,subfaction_id:Subfaction.where(name:"city").first.id,point_category:1500,point_number:1500})
+puts list_d
+list_e = List.create({user_id:User.where(email:"george.michael@toto.fr").first.id,subfaction_id:Subfaction.where(name:"daughter").first.id,point_category:1500,point_number:1390})
+puts list_e
+list_f = List.create({user_id:User.where(email:"george.michael@toto.fr").first.id,subfaction_id:Subfaction.where(name:"nighthaunt").first.id,point_category:1000,point_number:945})
+puts list_f
+
+list_unit_a = ListUnit.create({
+  unit_id:Unit.where(name:"freeguild general on griffon").first.id,
+  list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,
+  point:Unit.where(name:"freeguild general on griffon").first.point
+})
+puts list_unit_a
+
+# Jean Dupont lists
+
+general_gryph_jean = {unit_id:Unit.where(name:"freeguild general on griffon").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,point:Unit.where(name:"freeguild general on griffon").first.point}
+demy_gryph_a_jean = {unit_id:Unit.where(name:"demigryph knights").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,point:Unit.where(name:"demigryph knights").first.point}
+demy_gryph_b_jean = {unit_id:Unit.where(name:"demigryph knights").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,point:Unit.where(name:"demigryph knights").first.point}
+demy_gryph_c_jean = {unit_id:Unit.where(name:"demigryph knights").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,point:Unit.where(name:"demigryph knights").first.point}
+demy_gryph_d_jean = {unit_id:Unit.where(name:"demigryph knights").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,point:Unit.where(name:"demigryph knights").first.point}
+demy_gryph_e_jean = {unit_id:Unit.where(name:"demigryph knights").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,point:Unit.where(name:"demigryph knights").first.point}
+volley_gun_jean = {unit_id:Unit.where(name:"Hellblaster volley gun").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").first.id).first.id,point:Unit.where(name:"Hellblaster volley gun").first.point}
+
+unit_list_a=[general_gryph_jean, demy_gryph_a_jean, demy_gryph_b_jean, demy_gryph_c_jean, demy_gryph_d_jean, demy_gryph_e_jean,volley_gun_jean ]
+
+unit_list_a.each do |attributes|
+  unit_list = ListUnit.create!(attributes)
+  puts "Created #{unit_list}"
+end
+puts "Finished!"
 
 
-#   book_h ={ title:"la nuit tous les chats sont gris", 
-#             description:"miaou miaou miaou miaou ",
-#             user_id: reader.id,
-#             author:"Cat Stevens",
-#             collection:"Chat noir",
-#             editor:"Felin pour l'autre",
-#             genre:"roman",
-#             isbn:"1234567891241",
-#             image:"la nuit.png",
-#           }
 
-#   book_i ={ title:"Mbappe l'homme de la situation", 
-#             description:"les plus beau but de l'histoire du football sont là",
-#             user_id: reader.id,
-#             author:"Jérémie Sivan",
-#             collection:"Sueur froide",
-#             editor:"Panini",
-#             genre:"sport",
-#             isbn:"1234567891242",
-#             image:"mbappe.png",
-#           }
+auricprem_jean = {unit_id:Unit.where(name:"auric runesmiter on magmadroth").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").last.id).first.id,point:Unit.where(name:"auric runesmiter on magmadroth").first.point}
+auricsec_jean = {unit_id:Unit.where(name:"auric runefather on magmadroth").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").last.id).first.id,point:Unit.where(name:"auric runefather on magmadroth").first.point}
+hearth_a_jean = {unit_id:Unit.where(name:"hearthguard Berzekers").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").last.id).first.id,point:Unit.where(name:"hearthguard Berzekers").first.point}
+hearth_b_jean = {unit_id:Unit.where(name:"hearthguard Berzekers").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").last.id).first.id,point:Unit.where(name:"hearthguard Berzekers").first.point}
+hearth_c_jean = {unit_id:Unit.where(name:"hearthguard Berzekers").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").last.id).first.id,point:Unit.where(name:"hearthguard Berzekers").first.point}
+hearth_d_jean = {unit_id:Unit.where(name:"hearthguard Berzekers").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").last.id).first.id,point:Unit.where(name:"hearthguard Berzekers").first.point}
+hearth_e_jean = {unit_id:Unit.where(name:"hearthguard Berzekers").first.id,list_id:List.where(user_id:User.where(email:"jean.dupuis@toto.fr").last.id).first.id,point:Unit.where(name:"hearthguard Berzekers").first.point}
 
-#   book_j ={ title:"Voiture droit devant", 
-#             description:"les plus beau moment de la F1 télécommandée",
-#             user_id: reader.id,
-#             author:"Pils Neuv",
-#             collection:"bling bling",
-#             editor:"volant",
-#             genre:"sport",
-#             isbn:"1234567891243",
-#             image:"voiture droit devant.png",
-#           }
+unit_list_b=[auricprem_jean, auricsec_jean, hearth_a_jean, hearth_b_jean, hearth_c_jean, hearth_d_jean,hearth_e_jean ]
+
+unit_list_b.each do |attributes|
+  unit_list = ListUnit.create!(attributes)
+  puts "Created #{unit_list}"
+end
+puts "Finished!"
+
+# Paul young lists
+
+morathi_paul = {unit_id:Unit.where(name:"Morathi").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").first.id).first.id,point:Unit.where(name:"Morathi").first.point}
+cauldron_paul = {unit_id:Unit.where(name:"slaughter Queen on Cauldron of blood").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").first.id).first.id,point:Unit.where(name:"witch aelves").first.point}
+khinerai_paul = {unit_id:Unit.where(name:"khinerai lifetakers").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").first.id).first.id,point:Unit.where(name:"khinerai lifetakers").first.point}
+sister_a_paul = {unit_id:Unit.where(name:"sisters of slaughter").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").first.id).first.id,point:Unit.where(name:"sisters of slaughter").first.point}
+sister_b_paul = {unit_id:Unit.where(name:"sisters of slaughter").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").first.id).first.id,point:Unit.where(name:"sisters of slaughter").first.point}
+sister_c_paul = {unit_id:Unit.where(name:"sisters of slaughter").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").first.id).first.id,point:Unit.where(name:"sisters of slaughter").first.point}
+sister_d_paul = {unit_id:Unit.where(name:"sisters of slaughter").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").first.id).first.id,point:Unit.where(name:"sisters of slaughter").first.point}
 
 
-      
+unit_list_c=[morathi_paul, cauldron_paul, khinerai_paul, sister_a_paul, sister_b_paul, sister_c_paul,sister_d_paul ]
 
-#   books=[book_a,book_b,book_c,book_d,book_e,book_f,book_g,book_h,book_i,book_j]
-#   books.each do |attributes| 
-#      random_type = ["deposit","wish"].sample
-#      if random_type == "deposit"
-#       book =Book.create!(attributes)
-#       puts "Created #{book.title} #{book.id}"
-#      else 
-#       book =WishBook.create!(attributes)
-#       puts "Created #{book.title} #{book.id}"
-#      end
-#   end
-#       puts "Finished!"
-# end
-        
+unit_list_c.each do |attributes|
+  unit_list = ListUnit.create!(attributes)
+  puts "Created #{unit_list}"
+end
+puts "Finished!"
 
-#   books = Book.all
-#   puts books
-#   wish_books = WishBook.all
-#   puts wish_books
-#   puts "bases created"
-#   books.each do |book|
-#     wish_books = WishBook.where(user_id: book.user_id)
-#     puts wish_books
-#     wish_books.each do |wish_book|
-#       finder= FinderMatch.create({book_id:book.id,wish_book_id: wish_book.id})
-#       puts "Created #{finder.id}"
-#     end
-#   end
-  
-#   finder_match_a = FinderMatch.all
-#   puts finder_match_a.class
 
-#   finder_match_a.each do |match_a|
 
-#     finder_match_a.each do |match_b|
-#       if match_a.book.isbn == match_b.wish_book.isbn && match_b.book.isbn == match_a.wish_book.isbn
-#         puts "-----------------"
-#         puts match_a.book.isbn
-#         puts match_b.wish_book.isbn
-#         puts match_b.book.isbn
-#         puts match_a.wish_book.isbn
-#         puts "-----------------"
-#         matchu=AnswerMatch.create(finder_match_a_id:match_a.id,finder_match_b_id: match_b.id)
-#         destroy_match=AnswerMatch.where(finder_match_a_id:match_b.id).where(finder_match_b_id:match_a.id).destroy_all
-    
+general_paul = {unit_id:Unit.where(name:"freeguild general on griffon").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild general on griffon").first.point}
+guard_a_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_b_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_c_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_d_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_e_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_f_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_g_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_h_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_i_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+guard_j_paul = {unit_id:Unit.where(name:"freeguild guard").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild guard").first.point}
+handgun_paul = {unit_id:Unit.where(name:"freeguild handgunners").first.id,list_id:List.where(user_id:User.where(email:"paul.young@toto.fr").last.id).first.id,point:Unit.where(name:"freeguild handgunners").first.point}
 
-#         puts "---------------------------"
-#         puts "---------------------------"
-#         puts "created #{matchu.id}"
-#         puts "-----------------"
-#       end
-#     end
-  # end
+
+unit_list_d=[general_paul, guard_a_paul, guard_b_paul, guard_c_paul, guard_d_paul, guard_e_paul,guard_f_paul,guard_g_paul,guard_h_paul,guard_i_paul,guard_j_paul,handgun_paul ]
+
+unit_list_d.each do |attributes|
+  unit_list = ListUnit.create!(attributes)
+  puts "Created #{unit_list}"
+end
+puts "Finished!"
+
+
+# Georges Michael lists
+
+
+morathi_g = {unit_id:Unit.where(name:"Morathi").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").first.id).first.id,point:Unit.where(name:"Morathi").first.point}
+cauldron_g = {unit_id:Unit.where(name:"slaughter Queen on Cauldron of blood").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").first.id).first.id,point:Unit.where(name:"witch aelves").first.point}
+khinerai_a_g = {unit_id:Unit.where(name:"khinerai lifetakers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").first.id).first.id,point:Unit.where(name:"khinerai lifetakers").first.point}
+khinerai_b_g = {unit_id:Unit.where(name:"khinerai lifetakers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").first.id).first.id,point:Unit.where(name:"khinerai lifetakers").first.point}
+khinerai_c_g = {unit_id:Unit.where(name:"khinerai lifetakers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").first.id).first.id,point:Unit.where(name:"khinerai lifetakers").first.point}
+khinerai_d_g = {unit_id:Unit.where(name:"khinerai lifetakers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").first.id).first.id,point:Unit.where(name:"khinerai lifetakers").first.point}
+khinerai_e_g = {unit_id:Unit.where(name:"khinerai lifetakers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").first.id).first.id,point:Unit.where(name:"khinerai lifetakers").first.point}
+
+
+
+
+
+unit_list_e=[morathi_g, cauldron_g, khinerai_a_g, khinerai_b_g, khinerai_c_g, khinerai_d_g, khinerai_e_g ]
+
+unit_list_e.each do |attributes|
+  unit_list = ListUnit.create!(attributes)
+  puts "Created #{unit_list}"
+end
+puts "Finished!"
+
+
+reikenor_g = {unit_id:Unit.where(name:"reikenor the grimhailer").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").last.id).first.id,point:Unit.where(name:"reikenor the grimhailer").first.point}
+grim_a_g = {unit_id:Unit.where(name:"grimghast reapers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").last.id).first.id,point:Unit.where(name:"grimghast reapers").first.point}
+grim_b_g = {unit_id:Unit.where(name:"grimghast reapers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").last.id).first.id,point:Unit.where(name:"grimghast reapers").first.point}
+grim_c_g = {unit_id:Unit.where(name:"grimghast reapers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").last.id).first.id,point:Unit.where(name:"grimghast reapers").first.point}
+grim_d_g = {unit_id:Unit.where(name:"grimghast reapers").first.id,list_id:List.where(user_id:User.where(email:"george.michael@toto.fr").last.id).first.id,point:Unit.where(name:"grimghast reapers").first.point}
+
+
+
+unit_list_f=[reikenor_g, grim_a_g, grim_b_g, grim_c_g, grim_d_g]
+
+unit_list_f.each do |attributes|
+  unit_list = ListUnit.create!(attributes)
+  puts "Created #{unit_list}"
+end
+puts "Finished!"
+
+
+List.all.each do |list|
+    15.times  do
+    comment= {
+      content:"lorem ipsum!!Amazing job!"*8,
+      list_id:list.id,
+      user_id:User.all.sample.id,
+      note:(4..10).to_a.sample
+    }
+    com = Comment.create!(comment)
+    puts "#{com} created!"
+  end
+  puts "comments of the list created"
+end
